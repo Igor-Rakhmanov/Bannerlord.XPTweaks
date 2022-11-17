@@ -9,17 +9,19 @@
 		<string id="I34ardNfzvnvE" text="Smithing" />
 		<string id="NvrOZtU1qXr5w" text="Player XP Factor" />
 		<string id="dkIWIBYCyKy7l" text="How much more should player character get XP. 100% means your character will get double the XP. This is additive with other xp factors (default = 0%)" />
-		<string id="x63OTfGg3hkHt" text="Experience/Factors" />
+		<string id="F4KbLwGtGKFv7" text="Experience" />
+		<string id="x63OTfGg3hkHt" text="Factors" />
 		<string id="f7U5eiuI9gph9" text="Player Clan XP Factor" />
 		<string id="LWSs8jqrtBlyT" text="How much more should player clan characters get XP. This is additive with other xp factors (default = 0%)" />
 		<string id="CVdhi6iOcgT9v" text="XP Factor for everyone" />
 		<string id="0ZRLZGfMBbjEI" text="How much more should all characters get XP. This is additive with other xp factors (default = 0%)" />
 		<string id="ZoKcokmfk1jnf" text="Minimum Learning Rate" />
 		<string id="qPkUT2fPNNUMS" text="What should minimum learning rate be (default = 0%)" />
-		<string id="mV7FaNIGlMRSD" text="Experience/Learning rates and limits" />
+		<string id="mV7FaNIGlMRSD" text="Learning rates and limits" />
 		<string id="faEkFGfqJu3rX" text="Minimum deal amount" />
 		<string id="IAmbtcPLuesd0" text="Minimum deal amount to start earning additional XP (default = 0 denars)" />
-		<string id="5B5MjvBIQlO5B" text="Experience/Trade/Additional Trade XP from any deal" />
+		<string id="IBQCzbLjZy7pH" text="Trade" />
+		<string id="5B5MjvBIQlO5B" text="Additional Trade XP from any deal" />
 		<string id="kWNVC5nVH1weq" text="Denars to XP conversion multiplier" />
 		<string id="LksWn7aH7TQeN" text="How much XP should you get for total deal denars amount (sold + purchased) (default = 0%)" />
 		<string id="27IhzHu2hhztU" text="Only apply before level 330 reached" />
@@ -33,14 +35,14 @@
 		<string id="EqwVBslVwo9Ch" text="Maximum allowed skill level (default = 1024)" />
 		<string id="f2uWrmvUZMzD2" text="Fine weapon chance multiplier" />
 		<string id="Pd4c7iqbrlXKN" text="Multiplier for chance to create 'Fine' weapon with perk 'Experienced Smith' (10% chance). Perk tooltip will not change (default = 100%)" />
-		<string id="WYDp2KtTRIWT7" text="Smithing/Rarity chance" />
+		<string id="WYDp2KtTRIWT7" text="Rarity chance" />
 		<string id="5gbiMLZCb85Te" text="Masterwork weapon chance multiplier" />
 		<string id="kd9PEYAkSBbDg" text="Multiplier for chance to create 'Masterwork' weapon with perk 'Master Smith' (10% chance). Perk tooltip will not change (default = 100%)" />
 		<string id="yeveWqbRZSsz3" text="Legendary weapon chance base multiplier" />
 		<string id="yIQV0wNgpxvqC" text="Multiplier for chance to create 'Legendary' weapon with perk 'Legendary Smith' (5% chance + 1% per each skill level above 300). Perk tooltip will not change (default = 100%)" />
 		<string id="RnURhml8FkLPC" text="Fine weapon bonus points" />
 		<string id="Nll0US7Evrb6J" text="How many bonus points will crafted weapon get when 'Fine' version is triggered (default = 2)" />
-		<string id="fiEcFzWSLZoVC" text="Smithing/Rarity bonus" />
+		<string id="fiEcFzWSLZoVC" text="Rarity bonus" />
 		<string id="TcpaLF1OmWpCh" text="Masterwork weapon bonus points" />
 		<string id="88ezypskzKNEt" text="How many bonus points will crafted weapon get when 'Masterwork' version is triggered (default = 5)" />
 		<string id="RVi8HLF1RkNO5" text="Legendary weapon bonus points" />
@@ -55,6 +57,9 @@
 		<string id="Vn0OnWshqH8Im" text="Multiplies renown gain, 200% means double renown gain (default = 100%)" />
 		<string id="flTNVs6fqrl5T" text="Convert bandit prisoners without perk" />
 		<string id="bcdGw16augeky" text="Ignore 'Veterans Respect' perk requirement. Allows freely upgrading bandit troops (default = false)" />
+
+		<string id="ZhEzdj52VaeN6" text="Renown" />
+		<string id="E7i88SQTFWjSJ" text="Party" />
 		
 		<!--Crafted Item modifier prefixes-->
 		<string id="Wr8a8SMXCYkxX" text="Fine {ITEM_NAME}" />
