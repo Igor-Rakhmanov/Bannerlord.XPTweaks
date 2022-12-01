@@ -144,6 +144,7 @@ namespace Bannerlord.XPTweaks
                     num3 = -num3;
                 }
 
+                // TODO: values for swing or thrust should not increase if corresponding damage type is invalid (this is what TW overlooked)
                 float randomFloat = MBRandom.RandomFloat;
                 if (randomFloat < 0.2f)
                 {

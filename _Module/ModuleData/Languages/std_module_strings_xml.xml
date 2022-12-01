@@ -65,5 +65,10 @@
 		<string id="Wr8a8SMXCYkxX" text="Fine {ITEM_NAME}" />
 		<string id="98T9e7pM4IaTh" text="Masterwork {ITEM_NAME}" />
 		<string id="RiUyBG6mucouB" text="Legendary {ITEM_NAME}" />
+
+		<!--Preset names-->
+		<string id ="fHJABbrtIf6Tc" text="Default" />
+		<string id ="F8mTxNSWrksUx" text="Comfortable game" />
+		<string id ="JtEak4UKodfw4" text="Insane increase" />
 	</strings>
 </base>

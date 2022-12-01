@@ -3,6 +3,7 @@ using MCM.Abstractions;
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
+using TaleWorlds.Localization;
 
 namespace Bannerlord.XPTweaks.Settings;
 
@@ -188,9 +189,9 @@ public class MCMSettings : AttributeGlobalSettings<MCMSettings>
 
     public override IEnumerable<ISettingsPreset> GetBuiltInPresets()
     {
-        yield return new MemorySettingsPreset(Id, "default", "Default", () => new MCMSettings());
+        yield return new MemorySettingsPreset(Id, "default", new TextObject("{=fHJABbrtIf6Tc}Default").ToString(), () => new MCMSettings());
 
-        yield return new MemorySettingsPreset(Id, "comfortable_game", "Comfortable Game", () => new MCMSettings
+        yield return new MemorySettingsPreset(Id, "comfortable_game", new TextObject("{=F8mTxNSWrksUx}Comfortable Game").ToString(), () => new MCMSettings
         {
             ResearchPointsNeededMultiplier = 0.1f,
             PlayerXpFactor = 1f,
@@ -206,7 +207,7 @@ public class MCMSettings : AttributeGlobalSettings<MCMSettings>
             DisableDifficultyPenalty = true,
         });
 
-        yield return new MemorySettingsPreset(Id, "max", "Insane increase", () => new MCMSettings
+        yield return new MemorySettingsPreset(Id, "max", new TextObject("{=JtEak4UKodfw4}Insane increase").ToString(), () => new MCMSettings
         {
             ResearchPointsNeededMultiplier = 0.01f,
             PlayerXpFactor = 10f,
