@@ -1,15 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.2.3</Version>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Platforms>x64</Platforms>
-    <LangVersion>10.0</LangVersion>
-    <Nullable>enable</Nullable>
     <ModuleId>$(MSBuildProjectName)</ModuleId>
     <ModuleName>$(MSBuildProjectName)</ModuleName>
     <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
 	<GameVersion>1.0.0.3729</GameVersion>
+	<Platforms>x64;ARM64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -63,6 +59,10 @@
 	<PackageReference Include="Bannerlord.UIExtenderEx" Version="2.3.0" IncludeAssets="compile" />
 	<PackageReference Include="Bannerlord.ButterLib" Version="2.3.1" IncludeAssets="compile" />
 	<PackageReference Include="Bannerlord.MCM" Version="5.0.0" IncludeAssets="compile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bannerlord.XPTweaks.Logic\Bannerlord.XPTweaks.Logic.csproj" />
   </ItemGroup>
 
 </Project>

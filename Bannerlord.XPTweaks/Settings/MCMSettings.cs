@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Bannerlord.XPTweaks.Logic;
 using MCM.Abstractions;
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
@@ -7,7 +8,7 @@ using TaleWorlds.Localization;
 
 namespace Bannerlord.XPTweaks.Settings;
 
-public class MCMSettings : AttributeGlobalSettings<MCMSettings>
+public class MCMSettings : AttributeGlobalSettings<MCMSettings>, ISettings
 {
     public override string Id => "Bannerlord_XPTweaks_v1_0";
     public override string DisplayName => $"Bannerlord XP Tweaks";
