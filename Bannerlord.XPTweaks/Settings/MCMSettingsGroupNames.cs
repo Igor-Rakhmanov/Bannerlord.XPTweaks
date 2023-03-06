@@ -1,13 +1,13 @@
 ﻿namespace Bannerlord.XPTweaks.Settings
 {
-    internal static class MCMSettingsGroupNames
+    internal static class McmSettingsGroupNames
     {
         public const string Smithing = "{=I34ardNfzvnvE}Smithing";
         public const string SmithingRarityChance = Smithing + "/{=WYDp2KtTRIWT7}Rarity chance";
         public const string SmithingRarityBonus = Smithing + "/{=fiEcFzWSLZoVC}Rarity bonus";
 
         public const string Experience = "{=F4KbLwGtGKFv7}Experience";
-        public const string ExperienceFactors = Experience + "/{=x63OTfGg3hkHt}Factors";
+        public const string ExperienceMultipliers = Experience + "/{=x63OTfGg3hkHt}Multipliers";
         public const string ExperienceLearning = Experience + "/{=mV7FaNIGlMRSD}Learning rates and limits";
         public const string ExperienceTrade = Experience + "/{=IBQCzbLjZy7pH}Trade";
         public const string ExperienceTradeAdditionalXp = ExperienceTrade + "/{=5B5MjvBIQlO5B}Additional Trade XP from any deal";

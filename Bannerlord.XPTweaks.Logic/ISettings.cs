@@ -38,11 +38,11 @@
 
         #region Factors
 
-        float PlayerXpFactor { get; set; }
+        float PlayerXpMultiplier { get; set; }
 
-        float PlayerClanXpFactor { get; set; }
+        float PlayerClanXpMultiplier { get; set; }
 
-        float XpFactor { get; set; }
+        float XpMultiplier { get; set; }
 
         #endregion
 

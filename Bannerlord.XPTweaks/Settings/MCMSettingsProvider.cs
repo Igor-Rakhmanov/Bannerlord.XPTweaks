@@ -3,17 +3,17 @@ using System;
 
 namespace Bannerlord.XPTweaks.Settings
 {
-    internal class MCMSettingsProvider : ISettingsProvider
+    internal class McmSettingsProvider : ISettingsProvider
     {
-        private MCMSettingsProvider()
+        private McmSettingsProvider()
         {
 
         }
 
-        public static MCMSettingsProvider Instance => new MCMSettingsProvider();
+        public static McmSettingsProvider Instance => new McmSettingsProvider();
 
-        public ISettings Settings => MCMSettings.Instance ?? throw new NullReferenceException("MCMSettings instance is null");
+        public ISettings Settings => McmSettings.Instance ?? throw new NullReferenceException("McmSettings instance is null");
 
-        public bool IsInitialized => MCMSettings.Instance is not null;
+        public bool IsInitialized => McmSettings.Instance is not null;
     }
 }

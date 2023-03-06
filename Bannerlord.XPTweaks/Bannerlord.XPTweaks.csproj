@@ -4,8 +4,9 @@
     <ModuleId>$(MSBuildProjectName)</ModuleId>
     <ModuleName>$(MSBuildProjectName)</ModuleName>
     <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
-	<GameVersion>1.0.0.3729</GameVersion>
+	<GameVersion>1.1.0</GameVersion>
 	<Platforms>x64;ARM64</Platforms>
+	<Version>2.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

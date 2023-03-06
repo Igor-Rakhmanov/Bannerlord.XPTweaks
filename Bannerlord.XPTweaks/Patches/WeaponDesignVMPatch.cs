@@ -8,7 +8,7 @@ namespace Bannerlord.XPTweaks.Patches
     [HarmonyPatch(typeof(WeaponDesignVM), nameof(WeaponDesignVM.CreateCraftingResultPopup))]
     public class WeaponDesignVMPatch
     {
-        private static readonly CraftedWeaponNameTweak craftedWeaponNameTweak = new CraftedWeaponNameTweak(MCMSettingsProvider.Instance);
+        private static readonly CraftedWeaponNameTweak craftedWeaponNameTweak = new CraftedWeaponNameTweak(McmSettingsProvider.Instance);
 
         public static void Prefix(WeaponDesignVM __instance, ref string __state)
         {

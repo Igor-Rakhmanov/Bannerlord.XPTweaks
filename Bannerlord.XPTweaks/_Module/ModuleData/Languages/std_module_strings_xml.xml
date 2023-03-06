@@ -7,14 +7,14 @@
 		<string id="ugKrmOzjyPQwg" text="Parts Research Speed Multiplier" />
 		<string id="kbcKX2c9JgEua" text="Modifies speed of researching new smithing parts. The lesser number means faster research (default = 100%)" />
 		<string id="I34ardNfzvnvE" text="Smithing" />
-		<string id="NvrOZtU1qXr5w" text="Player XP Factor" />
-		<string id="dkIWIBYCyKy7l" text="How much more should player character get XP. 100% means your character will get double the XP. This is additive with other xp factors (default = 0%)" />
+		<string id="NvrOZtU1qXr5w" text="Player XP Multiplier" />
+		<string id="dkIWIBYCyKy7l" text="How much player character will get XP. 2 means your character will get double the XP, 0.5 will leave you only half the amount. This is independent of other xp multipliers (default = 1)" />
 		<string id="F4KbLwGtGKFv7" text="Experience" />
-		<string id="x63OTfGg3hkHt" text="Factors" />
-		<string id="f7U5eiuI9gph9" text="Player Clan XP Factor" />
-		<string id="LWSs8jqrtBlyT" text="How much more should player clan characters get XP. This is additive with other xp factors (default = 0%)" />
-		<string id="CVdhi6iOcgT9v" text="XP Factor for everyone" />
-		<string id="0ZRLZGfMBbjEI" text="How much more should all characters get XP. This is additive with other xp factors (default = 0%)" />
+		<string id="x63OTfGg3hkHt" text="Multipliers" />
+		<string id="f7U5eiuI9gph9" text="Player Clan XP multiplier" />
+		<string id="LWSs8jqrtBlyT" text="How much player clan characters will get XP. This is independent of other xp multipliers (default = 1)" />
+		<string id="CVdhi6iOcgT9v" text="XP multiplier for everyone" />
+		<string id="0ZRLZGfMBbjEI" text="How much all other characters will get XP. This is independent of other xp multipliers (default = 1)" />
 		<string id="ZoKcokmfk1jnf" text="Minimum Learning Rate" />
 		<string id="qPkUT2fPNNUMS" text="What should minimum learning rate be (default = 0%)" />
 		<string id="mV7FaNIGlMRSD" text="Learning rates and limits" />

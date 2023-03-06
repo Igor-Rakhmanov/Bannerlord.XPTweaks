@@ -32,15 +32,15 @@ public class SubModule : MBSubModuleBase
 
     private void InitializeGameModels(IGameStarter gameStarterObject)
     {
-        gameStarterObject.AddModel(new ModifiedGenericXpModel(MCMSettingsProvider.Instance));
-        gameStarterObject.AddModel(new ModifiedCharacterDevelopmentModel(MCMSettingsProvider.Instance));
-        gameStarterObject.AddModel(new ModifiedSmithingModel(MCMSettingsProvider.Instance));
-        gameStarterObject.AddModel(new ModifiedPartyTroopUpgradeModel(MCMSettingsProvider.Instance));
+        gameStarterObject.AddModel(new ModifiedGenericXpModel(McmSettingsProvider.Instance));
+        gameStarterObject.AddModel(new ModifiedCharacterDevelopmentModel(McmSettingsProvider.Instance));
+        gameStarterObject.AddModel(new ModifiedSmithingModel(McmSettingsProvider.Instance));
+        gameStarterObject.AddModel(new ModifiedPartyTroopUpgradeModel(McmSettingsProvider.Instance));
     }
 
     private void InitializeTradeTweaks()
     {
-        var tradeTweaks = new TradeTweaks(MCMSettingsProvider.Instance);
+        var tradeTweaks = new TradeTweaks(McmSettingsProvider.Instance);
         CampaignEvents.PlayerInventoryExchangeEvent.AddNonSerializedListener(this, tradeTweaks.IncreaseTradeOnBigDeals);
     }
 }

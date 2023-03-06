@@ -20,15 +20,15 @@ namespace Bannerlord.XPTweaks.Logic
 
             if (hero.IsHumanPlayerCharacter)
             {
-                multiplier += _settingsProvider.Settings.PlayerXpFactor;
+                return multiplier * _settingsProvider.Settings.PlayerXpMultiplier;
             }
+
             if (hero.Clan == Clan.PlayerClan)
             {
-                multiplier += _settingsProvider.Settings.PlayerClanXpFactor;
+                return multiplier * _settingsProvider.Settings.PlayerClanXpMultiplier;
             }
-            multiplier += _settingsProvider.Settings.XpFactor;
 
-            return multiplier;
+            return multiplier * _settingsProvider.Settings.XpMultiplier;
         }
     }
 }
