@@ -2,7 +2,6 @@
 
   <PropertyGroup>
 	  <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
-	  <GameVersion>1.0.0.3729</GameVersion>
 	  <Platforms>x64;ARM64</Platforms>
   </PropertyGroup>
 

@@ -6,9 +6,9 @@ using TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign;
 namespace Bannerlord.XPTweaks.Patches
 {
     [HarmonyPatch(typeof(WeaponDesignVM), nameof(WeaponDesignVM.CreateCraftingResultPopup))]
-    public class WeaponDesignVMPatch
+    public static class WeaponDesignVMPatch
     {
-        private static readonly CraftedWeaponNameTweak craftedWeaponNameTweak = new CraftedWeaponNameTweak(McmSettingsProvider.Instance);
+        private static readonly CraftedWeaponNameTweak craftedWeaponNameTweak = new(McmSettingsProvider.Instance);
 
         public static void Prefix(WeaponDesignVM __instance, ref string __state)
         {

@@ -17,5 +17,7 @@
         public const string Renown = "{=ZhEzdj52VaeN6}Renown";
 
         public const string Party = "{=E7i88SQTFWjSJ}Party";
+
+        public const string Alley = "{=UU6bVONeo3REF}Alley";
     }
 }

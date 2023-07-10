@@ -85,5 +85,17 @@
         bool IgnoreVeteransRespectRequirement { get; set; }
 
         #endregion
+
+        #region Alley
+
+        float AlleyIncomePlayerRogueryFactor { get; set; }
+
+        float AlleyIncomeCompanionRogueryFactor { get; set; }
+
+        bool AlleyIgnoreRoguerySkillRequirement { get; set; }
+
+        bool AlleyIgnoreMercifulTraitRequirement { get; set; }
+
+        #endregion
     }
 }

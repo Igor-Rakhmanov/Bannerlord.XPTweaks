@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bannerlord.XPTweaks.Logic
+﻿namespace Bannerlord.XPTweaks.Logic
 {
     public class RenownTweaks
     {
@@ -17,7 +11,7 @@ namespace Bannerlord.XPTweaks.Logic
 
         public float GetModifiedClanRenown(float originalRenownValue)
         {
-            if(!!_settingsProvider.IsInitialized) return originalRenownValue;
+            if (_settingsProvider.IsInitialized) return originalRenownValue;
 
             return originalRenownValue * _settingsProvider.Settings.RenownMultiplier;
         }

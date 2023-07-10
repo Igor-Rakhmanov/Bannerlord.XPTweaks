@@ -60,7 +60,18 @@
 
 		<string id="ZhEzdj52VaeN6" text="Renown" />
 		<string id="E7i88SQTFWjSJ" text="Party" />
+
+		<string id="UU6bVONeo3REF" text="Alley" />
+		<string id="vIhsgJwm6POuZ" text="Income multiplier from player roguery" />
+		<string id="9ZnhSP2qKVqlE" text="Increases alley income based on player roguery (default = 0)" />
+		<string id="iLX2arxbaDaOm" text="Income multiplier from assigned alley clan member roguery" />
+		<string id="ZFVm8l4SAHJBG" text="Increases alley income based on assigned alley clan member roguery (default = 0)" />
+		<string id="VUq8M64tb6sD6" text="Ignore roguery skill requirement" />
+		<string id="V008hYt4sMpye" text="Ignore roquery skill requirement for party member to become alley leader" />
+		<string id="PJsqwS0QXkoCN" text="Ignore merciful trait requirement" />
+		<string id="AMzxRpwoF8Yde" text="Ignore merciful trait requirement for party member to become alley leader" />
 		
+
 		<!--Crafted Item modifier prefixes-->
 		<string id="Wr8a8SMXCYkxX" text="Fine {ITEM_NAME}" />
 		<string id="98T9e7pM4IaTh" text="Masterwork {ITEM_NAME}" />

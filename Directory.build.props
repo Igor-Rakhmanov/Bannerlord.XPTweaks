@@ -8,5 +8,8 @@
             <Platforms>x64</Platforms>
             <LangVersion>10.0</LangVersion>
             <Nullable>enable</Nullable>
-    </PropertyGroup>
+		    <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
+		    <GameVersion>1.1.5</GameVersion>
+		    <Version>2.2.1</Version>
+	</PropertyGroup>
 </Project>

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Bannerlord.XPTweaks.Logic;
+﻿using Bannerlord.XPTweaks.Logic;
 using MCM.Abstractions;
 using MCM.Abstractions.Base.Global;
+using System.Collections.Generic;
 using TaleWorlds.Localization;
 
 namespace Bannerlord.XPTweaks.Settings;
@@ -31,6 +31,10 @@ public partial class McmSettings : AttributeGlobalSettings<McmSettings>, ISettin
             FocusPointPerLevel = 1,
             MaxSkillLevels = 1024,
             DisableDifficultyPenalty = true,
+            AlleyIncomeCompanionRogueryFactor = 0.02f,
+            AlleyIncomePlayerRogueryFactor = 0.01f,
+            AlleyIgnoreRoguerySkillRequirement = true,
+
         });
 
         yield return new MemorySettingsPreset(Id, "max", new TextObject("{=JtEak4UKodfw4}Insane increase").ToString(), () => new McmSettings
@@ -56,6 +60,10 @@ public partial class McmSettings : AttributeGlobalSettings<McmSettings>, ISettin
             SmithingEnergyCostMultiplier = 0f,
             RenownMultiplier = 10f,
             IgnoreVeteransRespectRequirement = true,
+            AlleyIncomeCompanionRogueryFactor = 1f,
+            AlleyIncomePlayerRogueryFactor = 1f,
+            AlleyIgnoreRoguerySkillRequirement = true,
+            AlleyIgnoreMercifulTraitRequirement = true,
         });
     }
 }

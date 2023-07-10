@@ -1,15 +1,15 @@
-﻿using System.Reflection;
+﻿using Bannerlord.XPTweaks.Logic;
+using Bannerlord.XPTweaks.Settings;
+using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
-using Bannerlord.XPTweaks.Logic;
-using Bannerlord.XPTweaks.Settings;
 
 namespace Bannerlord.XPTweaks;
 
 public class SubModule : MBSubModuleBase
 {
-    const string HarmonyDomain = "com.yngvarr94.bannerlordmods.xptweaks";
+    private const string HarmonyDomain = "com.yngvarr94.bannerlordmods.xptweaks";
 
     protected override void OnSubModuleLoad()
     {
@@ -23,7 +23,7 @@ public class SubModule : MBSubModuleBase
     {
         base.OnGameStart(game, gameStarterObject);
 
-        if(game.GameType is Campaign)
+        if (game.GameType is Campaign)
         {
             InitializeGameModels(gameStarterObject);
             InitializeTradeTweaks();
@@ -36,6 +36,7 @@ public class SubModule : MBSubModuleBase
         gameStarterObject.AddModel(new ModifiedCharacterDevelopmentModel(McmSettingsProvider.Instance));
         gameStarterObject.AddModel(new ModifiedSmithingModel(McmSettingsProvider.Instance));
         gameStarterObject.AddModel(new ModifiedPartyTroopUpgradeModel(McmSettingsProvider.Instance));
+        gameStarterObject.AddModel(new ModifiedAlleyModel(McmSettingsProvider.Instance));
     }
 
     private void InitializeTradeTweaks()

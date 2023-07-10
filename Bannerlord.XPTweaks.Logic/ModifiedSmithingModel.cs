@@ -1,8 +1,8 @@
-﻿using TaleWorlds.CampaignSystem.CharacterDevelopment;
+﻿using System;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.Core;
-using System;
 using TaleWorlds.TwoDimension;
 using MathF = TaleWorlds.Library.MathF;
 
@@ -11,6 +11,7 @@ namespace Bannerlord.XPTweaks.Logic
     public class ModifiedSmithingModel : DefaultSmithingModel
     {
         private readonly ISettingsProvider _settingsProvider;
+
         public ModifiedSmithingModel(ISettingsProvider settingsProvider)
         {
             _settingsProvider = settingsProvider;
@@ -18,19 +19,24 @@ namespace Bannerlord.XPTweaks.Logic
 
         public override float ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)
         {
-            var defaultResult = base.ResearchPointsNeedForNewPart(totalPartCount, openedPartCount);
+            if (!_settingsProvider.IsInitialized)
+            {
+                return base.ResearchPointsNeedForNewPart(totalPartCount, openedPartCount);
+            }
 
-            if (!_settingsProvider.IsInitialized) return defaultResult;
-
-            return defaultResult * _settingsProvider.Settings.ResearchPointsNeededMultiplier;
+            return base.ResearchPointsNeedForNewPart(totalPartCount, openedPartCount) * _settingsProvider.Settings.ResearchPointsNeededMultiplier;
         }
 
         public override Crafting.OverrideData GetModifierChanges(int modifierTier, Hero hero, WeaponComponentData weapon)
         {
-            if (!_settingsProvider.IsInitialized) base.GetModifierChanges(modifierTier, hero, weapon);
+            if (!_settingsProvider.IsInitialized)
+            {
+                return base.GetModifierChanges(modifierTier, hero, weapon);
+            }
 
             int pointsToModify = GetPointsToModify(modifierTier);
             Crafting.OverrideData overrideData = pointsToModify != 0 ? ModifyWeaponDesign(pointsToModify, weapon) : new Crafting.OverrideData();
+
             if (hero.GetPerkValue(DefaultPerks.Crafting.SharpenedEdge))
             {
                 overrideData.SwingDamageOverriden += MathF.Round(weapon.SwingDamage * DefaultPerks.Crafting.SharpenedEdge.PrimaryBonus * 0.01f);
@@ -46,10 +52,14 @@ namespace Bannerlord.XPTweaks.Logic
 
         public override int GetModifierTierForSmithedWeapon(WeaponDesign weaponDesign, Hero hero)
         {
-            if (!_settingsProvider.IsInitialized) return base.GetModifierTierForSmithedWeapon(weaponDesign, hero);
+            if (!_settingsProvider.IsInitialized)
+            {
+                return base.GetModifierTierForSmithedWeapon(weaponDesign, hero);
+            }
 
             int weaponDesignDifficulty = CalculateWeaponDesignDifficulty(weaponDesign);
             int difficultyDifference = hero.CharacterObject.GetSkillValue(DefaultSkills.Crafting) - weaponDesignDifficulty;
+
             if (difficultyDifference < 0 && !_settingsProvider.Settings.DisableDifficultyPenalty)
             {
                 return GetPenaltyForLowSkill(difficultyDifference);
@@ -57,8 +67,7 @@ namespace Bannerlord.XPTweaks.Logic
 
             float randomFloat = MBRandom.RandomFloat;
             float legendaryChance = hero.GetPerkValue(DefaultPerks.Crafting.LegendarySmith)
-                ? (DefaultPerks.Crafting.LegendarySmith.PrimaryBonus +
-                    Math.Max(0f, hero.GetSkillValue(DefaultSkills.Crafting) - 300) * 0.01f) * _settingsProvider.Settings.LegendaryWeaponChanceMultiplier
+                ? (DefaultPerks.Crafting.LegendarySmith.PrimaryBonus + Math.Max(0f, hero.GetSkillValue(DefaultSkills.Crafting) - 300) * 0.01f) * _settingsProvider.Settings.LegendaryWeaponChanceMultiplier
                 : 0f;
 
             float masterworkChance = hero.GetPerkValue(DefaultPerks.Crafting.MasterSmith)
@@ -125,7 +134,7 @@ namespace Bannerlord.XPTweaks.Logic
 
         private Crafting.OverrideData ModifyWeaponDesign(int numPoints, WeaponComponentData weapon)
         {
-            Crafting.OverrideData overrideData = new Crafting.OverrideData();
+            Crafting.OverrideData overrideData = new();
             int num = 0;
             int overridesSum = 0;
             while (overridesSum != numPoints && num++ < 500)
@@ -136,7 +145,6 @@ namespace Bannerlord.XPTweaks.Logic
                     num3 = -num3;
                 }
 
-                // TODO: values for swing or thrust should not increase if corresponding damage type is invalid (this is what TW overlooked)
                 // Should turn into some kind of helper, because this looks like shit
                 float randomFloat = MBRandom.RandomFloat;
                 if (randomFloat < 0.2f && weapon.SwingDamageType is not DamageTypes.Invalid)
@@ -188,10 +196,10 @@ namespace Bannerlord.XPTweaks.Logic
 
         private int GetOverridesSum(Crafting.OverrideData overrideData)
         {
-            return overrideData.SwingSpeedOverriden + 
-                overrideData.SwingDamageOverriden + 
-                overrideData.ThrustSpeedOverriden + 
-                overrideData.ThrustDamageOverriden + 
+            return overrideData.SwingSpeedOverriden +
+                overrideData.SwingDamageOverriden +
+                overrideData.ThrustSpeedOverriden +
+                overrideData.ThrustDamageOverriden +
                 overrideData.Handling;
         }
     }

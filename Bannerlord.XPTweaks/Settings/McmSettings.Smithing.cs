@@ -1,40 +1,35 @@
-﻿using System.Collections.Generic;
-using Bannerlord.XPTweaks.Logic;
-using MCM.Abstractions;
-using MCM.Abstractions.Attributes;
+﻿using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
-using MCM.Abstractions.Base.Global;
-using TaleWorlds.Localization;
 
 namespace Bannerlord.XPTweaks.Settings;
 
 public partial class McmSettings
 {
 
-	[SettingPropertyFloatingInteger("{=ugKrmOzjyPQwg}Parts research speed multiplier", 0.01f, 1f, valueFormat: "0.00%",
-		HintText = "{=kbcKX2c9JgEua}Modifies speed of researching new smithing parts. The lesser number means faster research (default = 100%)",
-		RequireRestart = false, Order = 1)]
-	[SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
-	public float ResearchPointsNeededMultiplier { get; set; } = 1f;
+    [SettingPropertyFloatingInteger("{=ugKrmOzjyPQwg}Parts research speed multiplier", 0.01f, 1f, valueFormat: "0.00%",
+        HintText = "{=kbcKX2c9JgEua}Modifies speed of researching new smithing parts. The lesser number means faster research (default = 100%)",
+        RequireRestart = false, Order = 1)]
+    [SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
+    public float ResearchPointsNeededMultiplier { get; set; } = 1f;
 
-	[SettingPropertyBool("{=HrGHQmGKuSce3}Disable difficulty penalty",
-		HintText = "{=LpRgJ0iWJs9JG}If enabled you won't get decreased stats when weapon design difficulty is more than crafter's skill level (default = false)",
-		RequireRestart = false, Order = 2)]
-	[SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
-	public bool DisableDifficultyPenalty { get; set; } = false;
+    [SettingPropertyBool("{=HrGHQmGKuSce3}Disable difficulty penalty",
+        HintText = "{=LpRgJ0iWJs9JG}If enabled you won't get decreased stats when weapon design difficulty is more than crafter's skill level (default = false)",
+        RequireRestart = false, Order = 2)]
+    [SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
+    public bool DisableDifficultyPenalty { get; set; } = false;
 
-	[SettingPropertyBool("{=csL1uigWMDBqu}Add rarity to crafted items name*",
-		HintText = "{=rgu9WE9CQYefL}If enabled default crafted weapon name will be prefixed with rarity (Fine, Masterwork, Legendary) if it was triggered by coresponding perk (default = false)\n" +
-		"* Experimental feature.",
-		RequireRestart = false, Order = 3)]
-	[SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
-	public bool AddCraftedItemRarity { get; set; } = false;
+    [SettingPropertyBool("{=csL1uigWMDBqu}Add rarity to crafted items name*",
+        HintText = "{=rgu9WE9CQYefL}If enabled default crafted weapon name will be prefixed with rarity (Fine, Masterwork, Legendary) if it was triggered by coresponding perk (default = false)\n" +
+        "* Experimental feature.",
+        RequireRestart = false, Order = 3)]
+    [SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
+    public bool AddCraftedItemRarity { get; set; } = false;
 
-	[SettingPropertyFloatingInteger("{=9CDiU6UWYWqBF}Smithing stamina cost multiplier", 0f, 1f, valueFormat: "0.00%",
-	HintText = "{=fNWy6XDrHgwJR}Modifies stamina cost for all smithing activities (default = 100%)",
-	RequireRestart = false, Order = 4)]
-	[SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
-	public float SmithingEnergyCostMultiplier { get; set; } = 1f;
+    [SettingPropertyFloatingInteger("{=9CDiU6UWYWqBF}Smithing stamina cost multiplier", 0f, 1f, valueFormat: "0.00%",
+    HintText = "{=fNWy6XDrHgwJR}Modifies stamina cost for all smithing activities (default = 100%)",
+    RequireRestart = false, Order = 4)]
+    [SettingPropertyGroup(McmSettingsGroupNames.Smithing)]
+    public float SmithingEnergyCostMultiplier { get; set; } = 1f;
 
 
     #region Rarity Chance
