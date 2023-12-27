@@ -1,4 +1,4 @@
-﻿using Bannerlord.XPTweaks.Logic;
+﻿using Bannerlord.XPTweaks.Logic.Tweaks;
 using Bannerlord.XPTweaks.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
@@ -10,9 +10,12 @@ namespace Bannerlord.XPTweaks.Patches
     {
         private static readonly RenownTweaks renownTweaks = new(McmSettingsProvider.Instance);
 
-        public static void Prefix(ref float value)
+        public static void Prefix(ref float value, bool shouldNotify, Clan __instance)
         {
-            value = renownTweaks.GetModifiedClanRenown(value);
+            if (__instance.Leader == Hero.MainHero)
+            {
+                value = renownTweaks.GetModifiedClanRenown(value);
+            }
         }
     }
 }

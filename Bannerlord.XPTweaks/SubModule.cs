@@ -1,4 +1,5 @@
-﻿using Bannerlord.XPTweaks.Logic;
+﻿using Bannerlord.XPTweaks.Logic.Models;
+using Bannerlord.XPTweaks.Logic.Tweaks;
 using Bannerlord.XPTweaks.Settings;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;

@@ -1,25 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
-using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using static TaleWorlds.CampaignSystem.GameComponents.DefaultAlleyModel;
 
-namespace Bannerlord.XPTweaks.Logic
+namespace Bannerlord.XPTweaks.Logic.Tweaks
 {
-    public class ModifiedAlleyModel : DefaultAlleyModel
+    public class BanditAlleyTweaks
     {
         private readonly ISettingsProvider _settingsProvider;
-        public ModifiedAlleyModel(ISettingsProvider settingsProvider)
+        public BanditAlleyTweaks(ISettingsProvider settingsProvider)
         {
             _settingsProvider = settingsProvider;
         }
 
-        public override int GetDailyIncomeOfAlley(Alley alley)
+        public int ModifyDailyIncomeOfAlley(Alley alley, int baseIncome)
         {
-            var baseIncome = base.GetDailyIncomeOfAlley(alley);
             if (!_settingsProvider.IsInitialized)
             {
                 return baseIncome;
@@ -30,14 +30,14 @@ namespace Bannerlord.XPTweaks.Logic
             var assignedMemberRoguery = assignedMember?.GetSkillValue(DefaultSkills.Roguery) ?? 0;
 
             var ownerRoguery = alley.Owner.GetSkillValue(DefaultSkills.Roguery);
-            var multiplier = (1 +
+            var multiplier = 1 +
                 assignedMemberRoguery * _settingsProvider.Settings.AlleyIncomeCompanionRogueryFactor +
-                ownerRoguery * _settingsProvider.Settings.AlleyIncomePlayerRogueryFactor);
+                ownerRoguery * _settingsProvider.Settings.AlleyIncomePlayerRogueryFactor;
 
             return MathF.Floor(baseIncome * multiplier);
         }
 
-        public override List<(Hero, AlleyMemberAvailabilityDetail)> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)
+        public List<(Hero, AlleyMemberAvailabilityDetail)> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)
         {
             List<(Hero, AlleyMemberAvailabilityDetail)> list = new();
             foreach (Hero lord in Clan.PlayerClan.Lords)
@@ -62,6 +62,12 @@ namespace Bannerlord.XPTweaks.Logic
         private AlleyMemberAvailabilityDetail GetAvailability(Alley alley, Hero hero)
         {
             IAlleyCampaignBehavior campaignBehavior = Campaign.Current.GetCampaignBehavior<IAlleyCampaignBehavior>();
+
+            if (campaignBehavior != null && campaignBehavior.GetIsAlleyUnderAttack(alley))
+            {
+                return AlleyMemberAvailabilityDetail.AlleyUnderAttack;
+            }
+
             if (hero.GetSkillValue(DefaultSkills.Roguery) < 30 && !_settingsProvider.Settings.AlleyIgnoreRoguerySkillRequirement)
             {
                 return AlleyMemberAvailabilityDetail.NotEnoughRoguerySkill;
@@ -77,14 +83,44 @@ namespace Bannerlord.XPTweaks.Logic
                 return AlleyMemberAvailabilityDetail.AlreadyAlleyLeader;
             }
 
+            if (hero.GovernorOf != null)
+            {
+                return AlleyMemberAvailabilityDetail.Governor;
+            }
+
             if (!hero.CanLeadParty())
             {
                 return AlleyMemberAvailabilityDetail.CanNotLeadParty;
             }
 
+            if (Campaign.Current.IssueManager.IssueSolvingCompanionList.Contains(hero))
+            {
+                return AlleyMemberAvailabilityDetail.SolvingIssue;
+            }
+
+            if (hero.IsFugitive)
+            {
+                return AlleyMemberAvailabilityDetail.Fugutive;
+            }
+
+            if (hero.IsTraveling)
+            {
+                return AlleyMemberAvailabilityDetail.Traveling;
+            }
+
             if (hero.IsPrisoner)
             {
-                return AlleyMemberAvailabilityDetail.IsPrisoner;
+                return AlleyMemberAvailabilityDetail.Prisoner;
+            }
+
+            if (!hero.IsActive)
+            {
+                return AlleyMemberAvailabilityDetail.Busy;
+            }
+
+            if (hero.IsPartyLeader)
+            {
+                return AlleyMemberAvailabilityDetail.Busy;
             }
 
             if (Campaign.Current.Models.DelayedTeleportationModel.GetTeleportationDelayAsHours(hero, alley.Settlement.Party).BaseNumber > 0f)

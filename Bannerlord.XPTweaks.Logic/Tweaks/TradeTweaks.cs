@@ -3,7 +3,7 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
-namespace Bannerlord.XPTweaks.Logic
+namespace Bannerlord.XPTweaks.Logic.Tweaks
 {
     public class TradeTweaks
     {

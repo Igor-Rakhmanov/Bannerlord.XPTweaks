@@ -9,7 +9,7 @@
             <LangVersion>10.0</LangVersion>
             <Nullable>enable</Nullable>
 		    <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
-		    <GameVersion>1.1.5</GameVersion>
-		    <Version>2.2.1</Version>
+		    <GameVersion>1.2.7</GameVersion>
+		    <Version>3.0.0</Version>
 	</PropertyGroup>
 </Project>

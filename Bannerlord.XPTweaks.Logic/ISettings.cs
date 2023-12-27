@@ -6,31 +6,7 @@
 
         float ResearchPointsNeededMultiplier { get; set; }
 
-        bool DisableDifficultyPenalty { get; set; }
-
-        bool AddCraftedItemRarity { get; set; }
-
         float SmithingEnergyCostMultiplier { get; set; }
-
-        #region Rarity Chance
-
-        float FineWeaponChanceMultiplier { get; set; }
-
-        float MasterworkWeaponChanceMultiplier { get; set; }
-
-        float LegendaryWeaponChanceMultiplier { get; set; }
-
-        #endregion
-
-        #region Rarity Bonus
-
-        int FineWeaponBonusPoints { get; set; }
-
-        int MasterworkWeaponBonusPoints { get; set; }
-
-        int LegendaryWeaponBonusPoints { get; set; }
-
-        #endregion
 
         #endregion
 

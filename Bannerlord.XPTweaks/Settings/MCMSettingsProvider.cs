@@ -10,7 +10,12 @@ namespace Bannerlord.XPTweaks.Settings
 
         }
 
-        public static McmSettingsProvider Instance => new();
+        private static McmSettingsProvider _instance;
+
+        public static McmSettingsProvider Instance
+        {
+            get { return _instance ??= new McmSettingsProvider(); }
+        }
 
         public ISettings Settings => McmSettings.Instance ?? throw new NullReferenceException("McmSettings instance is null");
 

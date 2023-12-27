@@ -30,11 +30,10 @@ public partial class McmSettings : AttributeGlobalSettings<McmSettings>, ISettin
             LevelsPerAttributePoint = 4,
             FocusPointPerLevel = 1,
             MaxSkillLevels = 1024,
-            DisableDifficultyPenalty = true,
             AlleyIncomeCompanionRogueryFactor = 0.02f,
             AlleyIncomePlayerRogueryFactor = 0.01f,
             AlleyIgnoreRoguerySkillRequirement = true,
-
+            AlleyIgnoreMercifulTraitRequirement = true,
         });
 
         yield return new MemorySettingsPreset(Id, "max", new TextObject("{=JtEak4UKodfw4}Insane increase").ToString(), () => new McmSettings
@@ -50,13 +49,6 @@ public partial class McmSettings : AttributeGlobalSettings<McmSettings>, ISettin
             LevelsPerAttributePoint = 1,
             FocusPointPerLevel = 10,
             MaxSkillLevels = 1024,
-            DisableDifficultyPenalty = true,
-            FineWeaponBonusPoints = 25,
-            MasterworkWeaponBonusPoints = 50,
-            LegendaryWeaponBonusPoints = 100,
-            FineWeaponChanceMultiplier = 10f,
-            MasterworkWeaponChanceMultiplier = 10f,
-            LegendaryWeaponChanceMultiplier = 20f,
             SmithingEnergyCostMultiplier = 0f,
             RenownMultiplier = 10f,
             IgnoreVeteransRespectRequirement = true,
