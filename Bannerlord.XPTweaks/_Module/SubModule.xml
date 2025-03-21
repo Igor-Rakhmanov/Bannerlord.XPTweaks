@@ -9,26 +9,26 @@
   <ModuleType value="Community" />
   <Url value="https://www.nexusmods.com/mountandblade2bannerlord/mods/4630" />
   <DependedModules>
-    <DependedModule Id="Bannerlord.Harmony" DependentVersion="v2.3.0"/>
-	<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.9.1"/>
+    <DependedModule Id="Bannerlord.Harmony" DependentVersion="v2.3.3"/>
+	<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.10.1"/>
 
-	<DependedModule Id="Native" DependentVersion="v1.2.8"/>
-    <DependedModule Id="SandBoxCore" DependentVersion="v1.2.8"/>
-    <DependedModule Id="Sandbox" DependentVersion="v1.2.8"/>
-    <DependedModule Id="StoryMode" DependentVersion="v1.2.8"/>
-    <DependedModule Id="CustomBattle" DependentVersion="v1.2.8"/>
+	<DependedModule Id="Native" DependentVersion="v1.2.12"/>
+    <DependedModule Id="SandBoxCore" DependentVersion="v1.2.12"/>
+    <DependedModule Id="Sandbox" DependentVersion="v1.2.12"/>
+    <DependedModule Id="StoryMode" DependentVersion="v1.2.12"/>
+    <DependedModule Id="CustomBattle" DependentVersion="v1.2.12"/>
   </DependedModules>
   <!-- Community Dependency Metadata -->
   <!-- https://github.com/BUTR/Bannerlord.BUTRLoader#for-modders -->
   <DependedModuleMetadatas>
-    <DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis" version="v2.3.0.*"/>
-	<DependedModuleMetadata id="Bannerlord.MBOptionScreen" order="LoadBeforeThis" version="v5.9.1.*"/>
+    <DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis" version="v2.3.3.*"/>
+	<DependedModuleMetadata id="Bannerlord.MBOptionScreen" order="LoadBeforeThis" version="v5.10.1.*"/>
 
-	<DependedModuleMetadata id="Native" order="LoadBeforeThis" version="v1.2.8"/>
-    <DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis" version="v1.2.8"/>
-    <DependedModuleMetadata id="Sandbox" order="LoadBeforeThis" version="v1.2.8"/>
-    <DependedModuleMetadata id="StoryMode" order="LoadBeforeThis" version="v1.2.8"/>
-    <DependedModuleMetadata id="CustomBattle" order="LoadBeforeThis" version="v1.2.8"/>
+	<DependedModuleMetadata id="Native" order="LoadBeforeThis" version="v1.2.12"/>
+    <DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis" version="v1.2.12"/>
+    <DependedModuleMetadata id="Sandbox" order="LoadBeforeThis" version="v1.2.12"/>
+    <DependedModuleMetadata id="StoryMode" order="LoadBeforeThis" version="v1.2.12"/>
+    <DependedModuleMetadata id="CustomBattle" order="LoadBeforeThis" version="v1.2.12"/>
   </DependedModuleMetadatas>
   <!-- Community Dependency Metadata -->
   <SubModules>
@@ -36,6 +36,7 @@
       <Name value="$modulename$" />
       <DLLName value="$modulename$.dll" />
       <SubModuleClassType value="$modulename$.SubModule" />
+      <Assemblies/>
       <Tags />
     </SubModule>
   </SubModules>

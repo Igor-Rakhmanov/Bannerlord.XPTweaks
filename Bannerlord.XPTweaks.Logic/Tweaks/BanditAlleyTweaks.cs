@@ -62,18 +62,26 @@ namespace Bannerlord.XPTweaks.Logic.Tweaks
         private AlleyMemberAvailabilityDetail GetAvailability(Alley alley, Hero hero)
         {
             IAlleyCampaignBehavior campaignBehavior = Campaign.Current.GetCampaignBehavior<IAlleyCampaignBehavior>();
+            var ignoreRogueryRequirement = false;
+            var ignoreTraitRequirement = false;
+
+            if (_settingsProvider.IsInitialized)
+            {
+                ignoreRogueryRequirement = _settingsProvider.Settings.AlleyIgnoreRoguerySkillRequirement;
+                ignoreTraitRequirement = _settingsProvider.Settings.AlleyIgnoreMercifulTraitRequirement;
+            }
 
             if (campaignBehavior != null && campaignBehavior.GetIsAlleyUnderAttack(alley))
             {
                 return AlleyMemberAvailabilityDetail.AlleyUnderAttack;
             }
 
-            if (hero.GetSkillValue(DefaultSkills.Roguery) < 30 && !_settingsProvider.Settings.AlleyIgnoreRoguerySkillRequirement)
+            if (hero.GetSkillValue(DefaultSkills.Roguery) < 30 && !ignoreRogueryRequirement)
             {
                 return AlleyMemberAvailabilityDetail.NotEnoughRoguerySkill;
             }
 
-            if (hero.GetTraitLevel(DefaultTraits.Mercy) > 0 && !_settingsProvider.Settings.AlleyIgnoreMercifulTraitRequirement)
+            if (hero.GetTraitLevel(DefaultTraits.Mercy) > 0 && !ignoreTraitRequirement)
             {
                 return AlleyMemberAvailabilityDetail.NotEnoughMercyTrait;
             }
