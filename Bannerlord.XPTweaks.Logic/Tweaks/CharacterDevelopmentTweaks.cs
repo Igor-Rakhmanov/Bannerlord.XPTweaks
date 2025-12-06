@@ -13,7 +13,12 @@ namespace Bannerlord.XPTweaks.Logic.Tweaks
             _settingsProvider = settingsProvider;
         }
 
-        public ExplainedNumber CalculateLearningRate(ExplainedNumber baseLearningRate, int attributeValue, int focusValue, int skillValue, int characterLevel, TextObject attributeName, bool includeDescriptions = false)
+        public ExplainedNumber CalculateLearningRate(ExplainedNumber baseLearningRate, 
+            IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes,
+            int focusValue,
+            int skillValue,
+            SkillObject skill,
+            bool includeDescriptions = false)
         {
 
             if (!_settingsProvider.IsInitialized) return baseLearningRate;

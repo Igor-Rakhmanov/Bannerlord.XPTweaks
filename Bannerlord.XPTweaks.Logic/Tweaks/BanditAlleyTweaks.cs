@@ -40,11 +40,11 @@ namespace Bannerlord.XPTweaks.Logic.Tweaks
         public List<(Hero, AlleyMemberAvailabilityDetail)> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)
         {
             List<(Hero, AlleyMemberAvailabilityDetail)> list = new();
-            foreach (Hero lord in Clan.PlayerClan.Lords)
+            foreach (Hero aliveLord in Clan.PlayerClan.AliveLords)
             {
-                if (lord != Hero.MainHero && !lord.IsDead)
+                if (aliveLord != Hero.MainHero)
                 {
-                    list.Add((lord, GetAvailability(alley, lord)));
+                    list.Add((aliveLord, GetAvailability(alley, aliveLord)));
                 }
             }
 
@@ -71,72 +71,34 @@ namespace Bannerlord.XPTweaks.Logic.Tweaks
                 ignoreTraitRequirement = _settingsProvider.Settings.AlleyIgnoreMercifulTraitRequirement;
             }
 
-            if (campaignBehavior != null && campaignBehavior.GetIsAlleyUnderAttack(alley))
-            {
+            if (alley.Owner == Hero.MainHero && campaignBehavior != null &&
+                campaignBehavior.GetIsPlayerAlleyUnderAttack(alley))
                 return AlleyMemberAvailabilityDetail.AlleyUnderAttack;
-            }
-
             if (hero.GetSkillValue(DefaultSkills.Roguery) < 30 && !ignoreRogueryRequirement)
-            {
                 return AlleyMemberAvailabilityDetail.NotEnoughRoguerySkill;
-            }
-
             if (hero.GetTraitLevel(DefaultTraits.Mercy) > 0 && !ignoreTraitRequirement)
-            {
                 return AlleyMemberAvailabilityDetail.NotEnoughMercyTrait;
-            }
-
             if (campaignBehavior != null && campaignBehavior.GetAllAssignedClanMembersForOwnedAlleys().Contains(hero))
-            {
                 return AlleyMemberAvailabilityDetail.AlreadyAlleyLeader;
-            }
-
             if (hero.GovernorOf != null)
-            {
                 return AlleyMemberAvailabilityDetail.Governor;
-            }
-
             if (!hero.CanLeadParty())
-            {
                 return AlleyMemberAvailabilityDetail.CanNotLeadParty;
-            }
-
-            if (Campaign.Current.IssueManager.IssueSolvingCompanionList.Contains(hero))
-            {
+            if (Campaign.Current.IssueManager.IssueSolvingCompanionList.Contains<Hero>(hero))
                 return AlleyMemberAvailabilityDetail.SolvingIssue;
-            }
-
             if (hero.IsFugitive)
-            {
                 return AlleyMemberAvailabilityDetail.Fugutive;
-            }
-
             if (hero.IsTraveling)
-            {
                 return AlleyMemberAvailabilityDetail.Traveling;
-            }
-
             if (hero.IsPrisoner)
-            {
                 return AlleyMemberAvailabilityDetail.Prisoner;
-            }
-
-            if (!hero.IsActive)
-            {
+            if (!hero.IsActive || hero.IsPartyLeader)
                 return AlleyMemberAvailabilityDetail.Busy;
-            }
+            return Campaign.Current.Models.DelayedTeleportationModel
+                .GetTeleportationDelayAsHours(hero, alley.Settlement.Party).BaseNumber > 0.0
+                ? AlleyMemberAvailabilityDetail.AvailableWithDelay
+                : AlleyMemberAvailabilityDetail.Available;
 
-            if (hero.IsPartyLeader)
-            {
-                return AlleyMemberAvailabilityDetail.Busy;
-            }
-
-            if (Campaign.Current.Models.DelayedTeleportationModel.GetTeleportationDelayAsHours(hero, alley.Settlement.Party).BaseNumber > 0f)
-            {
-                return AlleyMemberAvailabilityDetail.AvailableWithDelay;
-            }
-
-            return AlleyMemberAvailabilityDetail.Available;
         }
     }
 }

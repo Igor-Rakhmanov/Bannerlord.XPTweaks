@@ -15,11 +15,16 @@ namespace Bannerlord.XPTweaks.Logic.Models
             _characterDevelopmentTweaks = new CharacterDevelopmentTweaks(settingsProvider);
         }
 
-        public override ExplainedNumber CalculateLearningRate(int attributeValue, int focusValue, int skillValue, int characterLevel, TextObject attributeName, bool includeDescriptions = false)
+        public override ExplainedNumber CalculateLearningRate(
+            IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes,
+            int focusValue,
+            int skillValue,
+            SkillObject skill,
+            bool includeDescriptions = false)
         {
-            var baseLearningRate = base.CalculateLearningRate(attributeValue, focusValue, skillValue, characterLevel, attributeName, includeDescriptions);
+            var baseLearningRate = base.CalculateLearningRate(characterAttributes, focusValue, skillValue, skill, includeDescriptions);
 
-            return _characterDevelopmentTweaks.CalculateLearningRate(baseLearningRate, attributeValue, focusValue, skillValue, characterLevel, attributeName, includeDescriptions);
+            return _characterDevelopmentTweaks.CalculateLearningRate(baseLearningRate, characterAttributes, focusValue, skillValue, skill, includeDescriptions);
         }
 
         public override int LevelsPerAttributePoint
